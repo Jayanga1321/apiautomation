@@ -1,5 +1,16 @@
 package com.mobiquity.responsedto;
 
-public class CommentDTO {
+import com.mobiquity.util.ResponseBase;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class CommentDTO extends ResponseBase{
+	private String postId;
+	private String id;
+	private String name;
+	private String email;
+	private String body;
 }

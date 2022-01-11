@@ -7,9 +7,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PostDTO extends ResponseBase{
-	private String userId;
-	private String id;
-	private String title;
-	private String body;
+public class CompanyDTO extends ResponseBase{
+	private String name;
+	private String catchPhrase;
+	private String bs;
 }

@@ -7,9 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PostDTO extends ResponseBase{
-	private String userId;
-	private String id;
-	private String title;
-	private String body;
+public class GeoDTO extends ResponseBase{
+	private String lat;
+	private String lng;
 }
