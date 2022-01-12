@@ -19,24 +19,28 @@ public class UserDetailsService extends APIServiceBase {
 		this.baseURI = Config.getProperty("mobiquity.url");
 
 	}
-	
-	public UserDTO getUserDetails(String userName) throws Exception { 
-        try {
-        	 Response response = getRequest(baseURI,RelativeURLs.GET_USER_DETAILS.replace("{id}", userName));
 
-            if (response.statusCode() == 200) {
-            	
-            	userDTO= new UserDTO();
-            	userDetailsDTO=objectMapper.readValue(response.asString(), UserDetailsDTO[].class);
-            	userDTO.setUser(Arrays.asList(userDetailsDTO));
-            } else
-             
-            userDTO=new UserDTO();
-            userDTO.setResponse(response);
+	public Response getUserDetails(String userName) throws Exception {
 
-        } catch (Exception ex) {
-            throw ex;
-        }
-        return userDTO;
-    }
+		Response response;
+
+		try {
+			response = getRequest(baseURI, RelativeURLs.GET_USER_DETAILS.replace("{id}", userName));
+
+			if (response.statusCode() == 200) {
+
+				userDTO = new UserDTO();
+				userDetailsDTO = objectMapper.readValue(response.asString(), UserDetailsDTO[].class);
+				userDTO.setUser(Arrays.asList(userDetailsDTO));
+				
+			} else
+
+				userDTO = new UserDTO();
+				userDTO.setResponse(response);
+
+		} catch (Exception ex) {
+			throw ex;
+		}
+		return response;
+	}
 }

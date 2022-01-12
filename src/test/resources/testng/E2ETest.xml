@@ -3,7 +3,7 @@
 <suite name="E2E Test Suite">
     <test name="BVT test">
         <classes>
-            <class name="com.mobiquity.apiautomation.GetUserDetails"></class>
+            <class name="com.mobiquity.e2e.E2ETests"></class>
         </classes>
     </test>
 </suite>

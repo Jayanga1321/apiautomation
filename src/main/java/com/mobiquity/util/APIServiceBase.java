@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 
@@ -26,8 +27,8 @@ public abstract class APIServiceBase extends RestUtil {
 		try {
 			setBaseURI(baseURI);
 			setBasePath(relativeURI);
-
-			Response response = given().when().get();
+			
+			Response response = given().log().ifValidationFails().when().request("get",baseURI+relativeURI);
 
 			// Clear Base Path
 			resetBaseURI();

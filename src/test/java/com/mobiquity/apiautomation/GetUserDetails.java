@@ -18,30 +18,26 @@ import io.restassured.response.Response;
 public class GetUserDetails extends TestBase {
 
 	private APIServiceBase apiServiceBase;
-	private UserDTO getUserResponseDTO;
+	private Response getUserResponseDTO;
 	static Logger log = Logger.getLogger(GetUserDetails.class.getName());
-	private String userName;
+	public int userId;
 	private UserDetailsService userDetailsService;
 
-	@BeforeClass
-	public void serviceSetUp() throws Exception {
+
+	public int getUserId(String userName) throws Exception {
 		try {
 			userDetailsService = new UserDetailsService();
-			userName = getTestData("userName");
-		} catch (Exception e) {
-			throw e;
-		}
-	}
-
-	@Test
-	public void getUserDetails() throws Exception {
-		try {
-			log.info("Starting the test....");
-
+			
+			System.out.println("Getting the User ID of: "+userName);
 			getUserResponseDTO = userDetailsService.getUserDetails(userName);
 			Assert.assertEquals(getUserResponseDTO.getStatusCode(), 200);
+			Assert.assertEquals(getUserResponseDTO.jsonPath().get("username[0]"),userName);	
+			userId = getUserResponseDTO.jsonPath().get("id[0]");
+			
 		} catch (Exception e) {
 			throw e;
 		}
+		
+		return userId;
 	}
 }

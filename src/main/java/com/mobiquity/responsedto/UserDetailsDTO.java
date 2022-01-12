@@ -14,7 +14,7 @@ import lombok.Setter;
 public class UserDetailsDTO {
 
 	public class UserDTO extends ResponseBase {
-		private String id;
+		private int id;
 		private String name;
 		private String username;
 		private String email;
