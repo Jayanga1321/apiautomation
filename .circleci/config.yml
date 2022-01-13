@@ -9,4 +9,4 @@ jobs:
       - run:
           name: The First Step
           command: |
-            mvn clean test -DsuiteXmlFile=E2ETest.xml
+            mvn clean install -DsuiteXmlFile=E2ETest.xml
