@@ -14,8 +14,7 @@ jobs:
       - checkout
       - run:
           name: The First Step
-          command: 
-            apt-get
+          command: apt-get
             apt-get install maven
       - run:
           name: The Second Step
