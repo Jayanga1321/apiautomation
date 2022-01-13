@@ -1,6 +1,5 @@
 version: 2.1
 jobs:
-  maven/test:
   build:
     # pre-built images: https://circleci.com/docs/2.0/circleci-images/
     docker:
@@ -9,5 +8,8 @@ jobs:
       - checkout
       - run:
           name: The First Step
+          command: apt-get install maven
+      - run:
+          name: The Second Step
           command: |
             mvn clean install -DsuiteXmlFile=E2ETest.xml
