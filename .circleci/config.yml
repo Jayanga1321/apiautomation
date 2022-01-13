@@ -1,5 +1,6 @@
 version: 2.1
 jobs:
+  maven/test:
   build:
     # pre-built images: https://circleci.com/docs/2.0/circleci-images/
     docker:
