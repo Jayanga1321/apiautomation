@@ -15,9 +15,7 @@ jobs:
       - run:
           name: The First Step
           command: sudo apt-get update
-      - run:
-          name: The Firstw Step
-          command: sudo apt-get install maven
+                   sudo apt-get install maven
       - run:
           name: The Second Step
           command: mvn clean install -DsuiteXmlFile=E2ETest.xml
